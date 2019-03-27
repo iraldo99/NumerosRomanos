@@ -1,20 +1,41 @@
 package org.lasencinas.NumerosRomanos;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Main {
 	public static void main(String[] args) {
 		String numeroRomano = "MDCCCLXXXVIII";
-		int[] numericos;
+		String[] numRomanos = {"XLV","CDXCV","IV","XL","XIX","CCCXXXIV"};
+		String[] numRumanos = {"VL","VD","IIII","XXXX","IXX","IVXLCDM"};
+		String basico = "V";
 		
 		
-		numericos = Romano.numerico(numeroRomano);
+		Romano.transformar(numeroRomano);
 		
-		String a="";
-		for(int i = 0; i<numericos.length; i++) {
-			a=a+numericos[i];
+		for(String a:numRomanos) {
+			Romano.transformar(a);
 		}
-		System.out.println("El número romano es: "+a);
+		for(String a:numRumanos) {
+			Romano.transformar(a);
+		}
 		
-		   
+		String regex = "V";
+		String source = basico;
 		
+		findPattern(regex,basico);
+		
+	}
+	public static void findPattern(String regex, String source) {
+		Pattern patron = Pattern.compile(regex);
+		Matcher comparador = patron.matcher(source);
+		
+		System.out.println("\nRegex: "+regex);
+		System.out.println("Text: "+source);
+		
+		boolean found = false;
+		while(comparador.find()) {
+			System.out.println("Texto encontrado: ");
+		}
 	}
 }
