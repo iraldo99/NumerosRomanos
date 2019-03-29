@@ -8,7 +8,7 @@ public class Main {
 		String numeroRomano = "MDCCCLXXXVIII";
 		String[] numRomanos = {"XLV","CDXCV","IV","XL","XIX","CCCXXXIV"};
 		String[] numRumanos = {"VL","VD","IIII","XXXX","IXX","IVXLCDM"};
-		String basico = "V";
+		String basico = "MCDVXVI";
 		
 		
 		Romano.transformar(numeroRomano);
@@ -20,7 +20,7 @@ public class Main {
 			Romano.transformar(a);
 		}
 		
-		String regex = "V";
+		String regex = "DV";
 		String source = basico;
 		
 		findPattern(regex,basico);
@@ -31,11 +31,17 @@ public class Main {
 		Matcher comparador = patron.matcher(source);
 		
 		System.out.println("\nRegex: "+regex);
-		System.out.println("Text: "+source);
+		System.out.println("Texto: "+source);
 		
 		boolean found = false;
 		while(comparador.find()) {
-			System.out.println("Texto encontrado: ");
+			System.out.println("Texto encontrado: "+comparador.group()+
+					", Start: "+comparador.start()+
+					", End:"+comparador.end());
+			found = true;
+		}
+		if(!found) {
+			System.out.println("No se ha encontrado texto");
 		}
 	}
 }
