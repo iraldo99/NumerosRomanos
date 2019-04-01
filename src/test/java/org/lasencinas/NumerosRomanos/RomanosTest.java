@@ -18,7 +18,7 @@ public class RomanosTest {
 	public void encontrarV() {
 		String regex = "V";
 		String source = "XVI";
-		Main.findPattern(regex,source);
+		Main.encontrarPatron(regex,source);
 	}
 
 }
