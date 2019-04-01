@@ -8,7 +8,7 @@ public class Main {
 		String numeroRomano = "MDCCCLXXXVIII";
 		String[] numRomanos = {"XLV","CDXCV","IV","XL","XIX","CCCXXXIV"};
 		String[] numRumanos = {"VL","VD","IIII","XXXX","IXX","IVXLCDM"};
-		String basico = "MCDVXVI";
+		
 		
 		
 		Romano.transformar(numeroRomano);
@@ -20,10 +20,12 @@ public class Main {
 			Romano.transformar(a);
 		}
 		
-		String regex = "DV";
-		String source = basico;
+		String regex = "V";
+		String source = "MCDVXVI";
 		
-		findPattern(regex,basico);
+		System.out.println();
+		Romano.transformar(source);
+		findPattern(regex,source);
 		
 	}
 	public static void findPattern(String regex, String source) {
