@@ -5,13 +5,14 @@ import java.util.regex.Pattern;
 
 public class Main {
 	
-	public static String grupo = "CM|M|CD|D|XC|C|XL|L|IX|X|IV|V|I|";
-	public static Pattern patron = Pattern.compile(grupo);
-	
 	public static int valorDecimal(String numero) {
+		String grupo = Romano.sacarGrupos();
+		Pattern patron = Pattern.compile(grupo);
 		Matcher comparacion = patron.matcher(numero);
+		
 		int total = 0;
-		while(comparacion.find()) {
+		
+		while(comparacion.find()) { //SUMA LOS VALORES DE TODOS LOS GRUPOS QUE ENCUENTRE
 			total = total + Romano.valorDelGrupo(comparacion.group());
 		}
 		return total;

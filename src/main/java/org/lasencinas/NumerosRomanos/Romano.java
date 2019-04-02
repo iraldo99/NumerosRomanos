@@ -31,7 +31,7 @@ public enum Romano {
 		this.valor = valor;
 	}
 	
-	public static int valorDelGrupo(String grupo) {
+	public static int valorDelGrupo(String grupo) { //DEVUELVE EL VALOR DEL GRUPO
 		
 			for(Romano romano:Romano.values()) {
 				if(grupo.equals(romano.name())) {
@@ -40,6 +40,16 @@ public enum Romano {
 			}
 			
 		return 0; // CASO ERROR
+	}
+	
+	public static String sacarGrupos() { //CREA LOS GRUPOS AUTOMÁTICAMENTE EN BASE A LOS QUE HAYA EN EL ENUM
+		String grupo = "";
+		
+		for(Romano romano:Romano.values()) {
+			grupo = grupo + romano.name() + "|";
+		}
+		
+		return grupo;
 	}
 	
 }
